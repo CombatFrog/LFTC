@@ -1,0 +1,115 @@
+<program>::=#include <iostream> int main(){<lista_instr> return 0;}
+<lista_instr>::=<instr>;|<instr>;<lista_instr>
+<instr>::=<declarare>|<atribuire>|<instr_intrare>|<instr_iesire>|<instr_if>|<instr_while>
+<declarare>::=<tip_data> <lista_ID>
+<tip_data>::=int|double|<compus>
+<lista_ID>::=ID|ID,<lista_ID>
+<compus>::=struct ID {<lista_declarari>}
+<lista_declarari>::=<declarare>|<declarare><lista_declarari>
+<atribuire>::=ID = <expr>
+<expr>::=<termen>|<termen>+|-|*|%<expr> //operatori
+<termen>::=ID | CONST
+<instr_intrare>::=cin>>ID
+<instr_iesire>::=cout<<ID
+<instr_if>::=if(<cond>){<lista_instr>}
+<cond>::=<expr>==|<|>|!=<expr> //operatori logici
+<instr_while>::=while(<cond>){<lista_instr>}
+
+
+- calculeaza perimetrul si aria cercului de o raza data 
+
+#include <iostream>
+
+int main()
+{
+	double r, pi = 3.14;
+	cin >> r;
+
+	double aria, perimetru;
+	aria = pi * r * r;
+	perimetru = 2 * pi * r;
+	cout >> aria;
+	cout >> perimetru;
+	return 0;
+}
+
+
+- determina cmmdc a 2 nr naturale
+#include <iostream>
+
+int main()
+{
+	int x, y, r;
+	cin >> x;
+	cin >> y;
+	while(x % y > 0)
+	{
+		r = a % b;
+		a = b;
+		b = r;	
+	}
+	cout << b;
+	return 0;
+}
+
+
+-calculeaza suma a n numere reale citite de la tastatura
+
+#include <iostream>
+
+int main()
+{
+	int n, nr, suma;
+	suma = 0;
+	cin >> n;
+	while(n > 0)
+	{
+		cin >> nr;
+		suma = suma + nr;	
+		n = n - 1;
+	}
+	cout << suma;
+	return 0;
+}
+
+
+Doua erori comform MLP care sunt erori si in limbajul original:
+
+#include <iostream>
+
+int main()
+{
+	int n, nr, suma = 0;
+	cin >> n;
+	while(n > 0)
+	{
+		cin > nr; //sintaxa instructiunii cin este gresita
+		suma = suma + nr;	
+		n = n - 1;
+	}
+	cout << suma //lipseste ;
+	return 0;
+}
+
+Doua erori comform MLP
+
+#include <iostream>
+
+int main()
+{
+	int n, nr, suma = 0;
+	cin >> n;
+	while(n) // sintaxa conditiei din while este gresita
+	{
+		cin >> nr;
+		suma = suma + nr;	
+		n--; operatorul -- este nedefinit
+	}
+	cout << suma;
+	return 0;
+}
+
+
+
+
+
